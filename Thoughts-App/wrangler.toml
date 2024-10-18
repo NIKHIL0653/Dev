@@ -4,7 +4,8 @@ compatibility_date = "2024-10-14"
 compatibility_flags = [ "nodejs_compat" ]
 
 [vars]
-MY_VAR = "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZDIyZTY2YTMtZWY0OC00YWFiLThkMmUtNTI0ZWRjZGEwZTg1IiwidGVuYW50X2lkIjoiZWQ5ZGZiNjRjNTliMzcwYmNkNGJmMWE1YjE5YzdlZjJmMzM2NzlkY2Y5MDcxMGEzYmRjNTRhNTllMzk1YzZhYiIsImludGVybmFsX3NlY3JldCI6ImMxNTAxYzJiLTAzNjMtNDQ4NS1iNjM3LTkyNDk5Y2Y2YzE5OCJ9.0Pn1LAlye_l3FaADPVlFbg0DKKGe-XOshIaDJC9nsHs"
+DATABASE_URL = "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZDIyZTY2YTMtZWY0OC00YWFiLThkMmUtNTI0ZWRjZGEwZTg1IiwidGVuYW50X2lkIjoiZWQ5ZGZiNjRjNTliMzcwYmNkNGJmMWE1YjE5YzdlZjJmMzM2NzlkY2Y5MDcxMGEzYmRjNTRhNTllMzk1YzZhYiIsImludGVybmFsX3NlY3JldCI6ImMxNTAxYzJiLTAzNjMtNDQ4NS1iNjM3LTkyNDk5Y2Y2YzE5OCJ9.0Pn1LAlye_l3FaADPVlFbg0DKKGe-XOshIaDJC9nsHs"
+JWT_SECRET = "nikhil653"
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"

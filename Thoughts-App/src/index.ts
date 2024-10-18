@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
-
+import { decode, sign, verify } from 'hono/jwt'
 
 const app = new Hono <{
   Bindings: {
@@ -9,16 +9,35 @@ const app = new Hono <{
     // we did this because typescript does not understand what c.env.DATABASE_URL is
     // and this is how we tell it that it is of string datatype and hence we can now successfull injects the 
     // database url in the index.ts file
+    JWT_SECRET: string
   }
 }>()
 
 //we need file based routing for the app
 
 app.post('/api/v1/user/signup', (c) => {
+  const body = await c.req.json();
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL, // the env variable is not accessible globally it must happen in each and every route
 }).$extends(withAccelerate())
-  return c.text('Hello Hono!')
+
+try {
+  const user = await prisma.user.create({
+    data: {
+      username: body.username,
+      password: body.password,
+      name: body.name
+    }
+  })
+  const jwt = await sign({ 
+    id: user.id 
+  }, c.env.JWT_SECRET);
+  
+  return c.json({ jwt });
+} catch(e) {
+  c.status(403);
+  return c.json({ error: "error while signing up" });
+}
 })
 
 app.post('/api/v1/user/signin', (c) => {
