@@ -1,10 +1,23 @@
 import { Hono } from 'hono'
+import { PrismaClient } from '@prisma/client/edge'
+import { withAccelerate } from '@prisma/extension-accelerate'
 
-const app = new Hono()
+
+const app = new Hono <{
+  Bindings: {
+    DATABASE_URL: string;
+    // we did this because typescript does not understand what c.env.DATABASE_URL is
+    // and this is how we tell it that it is of string datatype and hence we can now successfull injects the 
+    // database url in the index.ts file
+  }
+}>()
 
 //we need file based routing for the app
 
 app.post('/api/v1/user/signup', (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL, // the env variable is not accessible globally it must happen in each and every route
+}).$extends(withAccelerate())
   return c.text('Hello Hono!')
 })
 
