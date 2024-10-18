@@ -15,7 +15,7 @@ const app = new Hono <{
 
 //we need file based routing for the app
 
-app.post('/api/v1/user/signup', (c) => {
+app.post('/api/v1/user/signup', async (c) => {
   const body = await c.req.json();
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL, // the env variable is not accessible globally it must happen in each and every route
@@ -32,7 +32,7 @@ try {
   const jwt = await sign({ 
     id: user.id 
   }, c.env.JWT_SECRET);
-  
+
   return c.json({ jwt });
 } catch(e) {
   c.status(403);
@@ -40,8 +40,33 @@ try {
 }
 })
 
-app.post('/api/v1/user/signin', (c) => {
-  return c.text('Hello Hono!')
+app.post('/api/v1/user/signin', async (c) => {
+  const body = await c.req.json();
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL, // the env variable is not accessible globally it must happen in each and every route
+}).$extends(withAccelerate())
+
+try {
+  const user = await prisma.user.findFirst({
+    where: {
+      username: body.username,
+      password: body.password,
+      name: body.name
+    }
+  })
+  if(!user) { // if user dosent exist
+    c.status(403); // ststus code for unauthorized 
+    return c.text('Invalid')
+  }
+  const jwt = await sign({ 
+    id: user.id 
+  }, c.env.JWT_SECRET);
+
+  return c.json({ jwt });
+} catch(e) {
+  c.status(403);
+  return c.json({ error: "error while signing up" });
+}
 })
 
 app.post('/api/v1/blog', (c) => {

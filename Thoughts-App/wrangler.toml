@@ -25,4 +25,4 @@ JWT_SECRET = "nikhil653"
 
 # [observability]
 # enabled = true
-# head_sampling_rate = 1
+# head_sampling_rate = 1npm run dev
