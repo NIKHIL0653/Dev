@@ -1,2 +1,108 @@
-Cloud-Kitchen_Web-App/
-Thoughts-App/
+import z from "zod";
+
+export const signupInput = z.object({
+    email: z.string().email(),
+    password: z.string(),
+    name: z.string().optional(),
+});
+
+export const signinInput = z.object({
+    email: z.string().email(),
+    password: z.string(),
+});
+
+export const createPostInput = z.object({
+    title: z.string(),
+    content: z.string(),
+});
+
+export const updatePostInput = z.object({
+    title: z.string().optional(),
+    content: z.string().optional(),
+});
+
+
+export type SignupType = z.infer<typeof signupInput>;
+export type SigninType = z.infer<typeof signinInput>;
+export type CreatePostType = z.infer<typeof createPostInput>;
+export type UpdatePostType = z.infer<typeof updatePostInput>;
+
+// wrangler.toml
+
+name = "thoughts-app"
+main = "src/index.ts"
+compatibility_date = "2024-10-14"
+compatibility_flags = [ "nodejs_compat" ]
+
+[vars]
+DATABASE_URL = "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZDIyZTY2YTMtZWY0OC00YWFiLThkMmUtNTI0ZWRjZGEwZTg1IiwidGVuYW50X2lkIjoiZWQ5ZGZiNjRjNTliMzcwYmNkNGJmMWE1YjE5YzdlZjJmMzM2NzlkY2Y5MDcxMGEzYmRjNTRhNTllMzk1YzZhYiIsImludGVybmFsX3NlY3JldCI6ImMxNTAxYzJiLTAzNjMtNDQ4NS1iNjM3LTkyNDk5Y2Y2YzE5OCJ9.0Pn1LAlye_l3FaADPVlFbg0DKKGe-XOshIaDJC9nsHs"
+JWT_SECRET = "nikhil653"
+
+# [[kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "my-database"
+# database_id = ""
+
+# [ai]
+# binding = "AI"
+
+# [observability]
+# enabled = true
+# head_sampling_rate = 1npm run dev
+
+
+//prisma
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // can be monog as well or other db services
+  url      = env("DATABASE_URL") 
+  // it will extract url from .env file so placw the original db url there
+  //and accelerate url in wrangler.toml file
+}
+
+
+model Blog {
+  id        Int      @id @default(autoincrement())
+  authorId   Int
+  content    String
+  thumbnail  String
+  title      String
+  published  Boolean @default(false)
+  author     User    @relation(fields: [authorId], references: [id])
+}
+
+// we need to establish a relation between the user and the post model
+//afte we have made the user blog data model and estalished a relation we say it is good to go and create the database
+
+model User {
+  id        Int     @id @default(autoincrement())  // automatically increments user count when someone registers
+  name      String? // not required
+  username  String  @unique  // these 2 required
+  password  String
+  blogs     Blog[]
+}
+
+//RUN: npx prisma migrate dev --name init
+
+//circle function
+
+export function Circle() {
+    return <div className="h-1 w-1 rounded-full bg-slate-500"> </div>
+}
