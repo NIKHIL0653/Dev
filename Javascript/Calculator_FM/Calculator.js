@@ -27,7 +27,7 @@ function handleNumber(number){
 }
 
 function handleMath(value) {
-    if (buffer === "0") {
+    if (buffer === "0") { // say the user is just clicking on operators befor giving 1st number
       // do nothing
       return;
     }
@@ -53,7 +53,7 @@ function handleMath(value) {
       runningTotal -= intBuffer;
     } else if (previousOperator === "×") {
       runningTotal *= intBuffer;
-    } else {
+    } else{
       runningTotal /= intBuffer;
     }
   }
