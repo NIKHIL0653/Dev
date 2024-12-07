@@ -99,3 +99,19 @@ NOTE* : Now it doesn't mean == means it has a lot of problem and corner cases,
 since we are creating another teacher in otherClass(), it goes outside the scope and assigns the value to the variable in 
 the global scope, moreover since there is no topic creation in the global scope it creates one in the global scope even
 though it is declared inside the class (only in this case because it is coded in non-strict mode can differ in other scenarios).
+
+**-> undefined vs undeclared:** 
+They're very distinctly different. Specifically in a program something that is undefined is a variable that has been declared, but it doesn't have a value. And then a variable that is undeclared is one that was never declared anywhere.
+
+**-> block scoping: **
+
+    var teacher = "Kyle";
+    {
+    	let teacher = "Suzy";
+    	console.log(teacher);
+    }
+    
+    console.log(teacher);
+
+Here even though there are 2 teachers one does not override(overwrite) other instead notice hoe **"let"** 
+keyword is used to create a separate one.
