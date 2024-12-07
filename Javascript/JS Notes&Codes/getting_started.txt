@@ -1,8 +1,6 @@
 Do check out the book by kyle simpsons up & going
 
 What can we expect?
-1. prohramming primer
-2. Three pillars of JS (types/coersion, scope/closures, this/prototypes)
 
 1. Programming Primer:
 -> values: 42, 3.14 (both are just numbers unlike integer and float) 
@@ -35,5 +33,29 @@ expressions & statements: var age = 23; (statement)
                           age = 1 + (age * 2); (expression)
 
 
- decisions, loops, functions
+decisions, loops, functions
+
+2. Three pillars of JS (types/coersion, scope/closures, this/prototypes)
+
+i) Types & Coersion:
+-> primitive types: number, string, boolean, null, undefined
+"In JS everything is an object" very wrong fact
+
+Use new:
+    1) Object()
+    2) Array()
+    3) Function()
+    4) RegExp()
+    5) Date()
+    6) Error()
+
+Don't Use new:
+    1) string()
+    2) number()
+    3) boolean()
+
+-> Type Coersion:
+    The way to convert from one type to another
+
+
 
