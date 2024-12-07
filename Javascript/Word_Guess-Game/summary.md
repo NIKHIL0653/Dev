@@ -1,4 +1,4 @@
-## Introduction
+## WORD GUESS
 
 # A very popular game where the player has 6 chances to guess the right word, given all th input words must be valid.
 # The game will end when the player guesses the word correctly or runs out of chances.
