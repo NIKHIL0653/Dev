@@ -1,0 +1,39 @@
+Do check out the book by kyle simpsons up & going
+
+What can we expect?
+1. prohramming primer
+2. Three pillars of JS (types/coersion, scope/closures, this/prototypes)
+
+1. Programming Primer:
+-> values: 42, 3.14 (both are just numbers unlike integer and float) 
+           "Hello, Friend (string)
+           true, false (boolean)
+           null, undefined (primitive/empty values)
+           [1,2,3], {name: "Nikhil"} : non-primitive values
+
+
+-> operations: number operations => 3+4, 43 - 1
+               string concatenation => "Nikhil" + "Choudhary"
+               boolean operations => true && false, true || false
+               unary operator => !false
+               binary operator (comparision) : 3.0 == 3/ 3.0 === 3, 3 < 4
+               logical operator => true || false
+
+
+-> variables: var name = "Nikhil Choudhary"
+              var age = 23
+              var friends = ["Brian", "Kyle"];
+              --> some other operations with variables:
+              var age = 23;
+              age++;
+              age += 2;
+              age; // 25
+
+
+
+expressions & statements: var age = 23; (statement)
+                          age = 1 + (age * 2); (expression)
+
+
+ decisions, loops, functions
+
