@@ -57,5 +57,20 @@ Don't Use new:
 -> Type Coersion:
     The way to convert from one type to another
 
+CODE: 
+
+var msg1 = "There are ";
+var numStudents = 16;
+var msg2 = " students."
+
+console.log(msg1 + numsStudents + msg2);
+
+// Another way of writing this is
+
+var numStudents = 16;
+
+console.log(`There are ${numStudents + ""} students.`); 
+// watch how we converted number to string by adding "" after the variable
+
 
 
