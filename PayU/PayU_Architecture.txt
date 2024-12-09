@@ -1,0 +1,4 @@
+Lets look at the architecture of the money exchange architecture
+all about LLD, and HLD to better understand the problem and before moving 
+on to coding the project.
+
