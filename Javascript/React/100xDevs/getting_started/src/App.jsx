@@ -4,10 +4,20 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-      <div> Hi there </div>
+      <div>
+        <PostComponent />
+      </div>
+  )
+}
+
+const style = {width: 200, backgroundColor: "white", borderRadius: 10, borderColor: "gray", borderWidth: 1 }
+
+function PostComponent() {
+  return (
+      <div style = {style}> 
+        Hi there 
+      </div>
   )
 }
 
