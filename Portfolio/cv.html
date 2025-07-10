@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nikhil Choudhary</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-content {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #555;
+        }
+
+        .cv-section {
+            margin-bottom: 2rem;
+        }
+
+        .cv-section h2 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-category {
+            background: #f8f8f8;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .skill-category h4 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">← Back to Home</a>
+        <h1>Curriculum Vitae</h1>
+        <div class="page-content">
+            <section class="cv-section">
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <h3>Job Title</h3>
+                    <div class="date">January 2022 - Present</div>
+                    <p>Description of your role and responsibilities. Add key achievements and contributions.</p>
+                </div>
+                <!-- Add more experience items as needed -->
+            </section>
+
+            <section class="cv-section">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Degree Name</h3>
+                    <div class="date">2018 - 2022</div>
+                    <p>University Name</p>
+                    <p>Additional details about your education, achievements, etc.</p>
+                </div>
+            </section>
+
+            <section class="cv-section">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <ul class="skill-list">
+                            <li>JavaScript</li>
+                            <li>Python</li>
+                            <li>Java</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Web Technologies</h4>
+                        <ul class="skill-list">
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>HTML/CSS</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Platforms</h4>
+                        <ul class="skill-list">
+                            <li>Git</li>
+                            <li>Docker</li>
+                            <li>AWS</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html> 
